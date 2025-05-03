@@ -16,10 +16,6 @@ h3 {
     margin-top: 25px;
 }
 
-audio {
-    width: 350px;
-}
-
 .text-justify {
     text-align: justify;
 }
@@ -35,11 +31,15 @@ audio {
     transition: background-color 0.2s ease;
   }
 
-  .btn-xs:hover {
+.btn-xs:hover {
     background-color: #333;
     color: #fff;
     text-decoration: none;
-  }
+}
+
+.audio-caption {
+    font-size: 0.9rem;
+}
 </style>
 <body>
     <div class="container">
@@ -50,7 +50,7 @@ audio {
         </p>
         <p class="text-center font-monospace">{esteban.gomezmellado, tom.backstrom}@aalto.fi</p>
         <p class="text-center">
-            <img src="img/net-structure.svg" class="img-fluid" alt="net-structure">
+            <img src="img/mic-enhancement-overview.svg" class="img-fluid" alt="net-structure">
         </p>
         <div class="text-center my-4">
             <div class="d-flex justify-content-center flex-wrap gap-3">
@@ -112,20 +112,170 @@ audio {
         </div>
         <h3 id="bwe">Bandwidth extension <a href="#toc" class="btn btn-xs btn-outline-dark ms-2">Top ↑</a></h3>
         <p class="text-justify">
-            In the following examples, the input to the model corresponds to noisy dry speech. The network's task is to simultaneously suppress
-            the noise and to predict the missing spectral content without extending the bandwidth of any residual noise if present.
+            In the following examples, the model input consists of wideband clean dry speech. The network's task is to extend the bandwidth and modify the frequency response to match that of the target microphone.
         </p>
+
+        <!-- IGH1000 to C414 -->
+        <div class="container mt-4">
+          <div class="container mt-4">
+            <h5 class="text-center mb-4">
+                <strong>Source headset microphone:</strong> IGH1000 &rarr; <strong>Target studio microphone:</strong> C414
+            </h5>
+            <div class="row">
+              <div class="col-6 col-md-3 text-center mb-4">
+                <img src="img/clean-dry-m-igh1000-to-c414/clean-dry-m-16k-input.svg" class="img-fluid rounded" style="aspect-ratio: 1 / 1;" alt="Image 1" />
+                <audio controls class="w-100 mt-2">
+                  <source src="audio/clean-dry-m-igh1000-to-c414/clean-dry-m-16k-input.wav" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+                <div class="mt-1 text-muted" class="audio-caption">
+                    Input
+                </div>
+              </div>
+              <div class="col-6 col-md-3 text-center mb-4">
+                <img src="img/clean-dry-m-igh1000-to-c414/clean-dry-m-48k-pred-no-conversion.svg" class="img-fluid rounded" style="aspect-ratio: 1 / 1;" alt="Image 2" />
+                <audio controls class="w-100 mt-2">
+                  <source src="audio/clean-dry-m-igh1000-to-c414/clean-dry-m-48k-pred-no-conversion.wav" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+                <div class="mt-1 text-muted" class="audio-caption">
+                    Predicted (no conversion)
+                </div>
+              </div>
+              <div class="col-6 col-md-3 text-center mb-4">
+                <img src="img/clean-dry-m-igh1000-to-c414/clean-dry-m-48k-pred.svg" class="img-fluid rounded" style="aspect-ratio: 1 / 1;" alt="Image 3" />
+                <audio controls class="w-100 mt-2">
+                  <source src="audio/clean-dry-m-igh1000-to-c414/clean-dry-m-48k-pred.wav" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+                <div class="mt-1 text-muted" class="audio-caption">
+                    Predicted (converted)
+                </div>
+              </div>
+              <div class="col-6 col-md-3 text-center mb-4">
+                <img src="img/clean-dry-m-igh1000-to-c414/clean-dry-m-48k-target.svg" class="img-fluid rounded" style="aspect-ratio: 1 / 1;" alt="Image 4" />
+                <audio controls class="w-100 mt-2">
+                  <source src="audio/clean-dry-m-igh1000-to-c414/clean-dry-m-48k-target.wav" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+                <div class="mt-1 text-muted" class="audio-caption">
+                    Target
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- IGH1000 to SM57 -->
+          <hr class="my-4 border-top border-1 border-secondary">
+          <div class="container mt-4">
+            <h5 class="text-center mb-4">
+                <strong>Source headset microphone:</strong> IGH1000 &rarr; <strong>Target studio microphone:</strong> SM57
+            </h5>
+            <div class="row">
+              <div class="col-6 col-md-3 text-center mb-4">
+                <img src="img/clean-dry-f-igh1000-to-sm57/clean-dry-f-16k-input.svg" class="img-fluid rounded" style="aspect-ratio: 1 / 1;" alt="Image 1" />
+                <audio controls class="w-100 mt-2">
+                  <source src="audio/clean-dry-f-igh1000-to-sm57/clean-dry-f-16k-input.wav" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+                <div class="mt-1 text-muted" class="audio-caption">
+                    Input
+                </div>
+              </div>
+              <div class="col-6 col-md-3 text-center mb-4">
+                <img src="img/clean-dry-f-igh1000-to-sm57/clean-dry-f-48k-pred-no-conversion.svg" class="img-fluid rounded" style="aspect-ratio: 1 / 1;" alt="Image 2" />
+                <audio controls class="w-100 mt-2">
+                  <source src="audio/clean-dry-f-igh1000-to-sm57/clean-dry-f-48k-pred-no-conversion.wav" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+                <div class="mt-1 text-muted" class="audio-caption">
+                    Predicted (no conversion)
+                </div>
+              </div>
+              <div class="col-6 col-md-3 text-center mb-4">
+                <img src="img/clean-dry-f-igh1000-to-sm57/clean-dry-f-48k-pred.svg" class="img-fluid rounded" style="aspect-ratio: 1 / 1;" alt="Image 3" />
+                <audio controls class="w-100 mt-2">
+                  <source src="audio/clean-dry-f-igh1000-to-sm57/clean-dry-f-48k-pred.wav" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+                <div class="mt-1 text-muted" class="audio-caption">
+                    Predicted (converted)
+                </div>
+              </div>
+              <div class="col-6 col-md-3 text-center mb-4">
+                <img src="img/clean-dry-f-igh1000-to-sm57/clean-dry-f-48k-target.svg" class="img-fluid rounded" style="aspect-ratio: 1 / 1;" alt="Image 4" />
+                <audio controls class="w-100 mt-2">
+                  <source src="audio/clean-dry-f-igh1000-to-sm57/clean-dry-f-48k-target.wav" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+                <div class="mt-1 text-muted" class="audio-caption">
+                    Target
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <!-- NSX10 to C414 -->
+          <hr class="my-4 border-top border-1 border-secondary">
+          <div class="container mt-4">
+            <h5 class="text-center mb-4">
+                <strong>Source headset microphone:</strong> NSX10 &rarr; <strong>Target studio microphone:</strong> C414
+            </h5>
+            <div class="row">
+              <div class="col-6 col-md-3 text-center mb-4">
+                <img src="img/clean-dry-f-nsx10-to-c414/clean-dry-f-16k-input.svg" class="img-fluid rounded" style="aspect-ratio: 1 / 1;" alt="Image 1" />
+                <audio controls class="w-100 mt-2">
+                  <source src="audio/clean-dry-f-nsx10-to-c414/clean-dry-f-16k-input.wav" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+                <div class="mt-1 text-muted" class="audio-caption">
+                    Input
+                </div>
+              </div>
+              <div class="col-6 col-md-3 text-center mb-4">
+                <img src="img/clean-dry-f-nsx10-to-c414/clean-dry-f-48k-pred-no-conversion.svg" class="img-fluid rounded" style="aspect-ratio: 1 / 1;" alt="Image 2" />
+                <audio controls class="w-100 mt-2">
+                  <source src="audio/clean-dry-f-nsx10-to-c414/clean-dry-f-48k-pred-no-conversion.wav" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+                <div class="mt-1 text-muted" class="audio-caption">
+                    Predicted (no conversion)
+                </div>
+              </div>
+              <div class="col-6 col-md-3 text-center mb-4">
+                <img src="img/clean-dry-f-nsx10-to-c414/clean-dry-f-48k-pred.svg" class="img-fluid rounded" style="aspect-ratio: 1 / 1;" alt="Image 3" />
+                <audio controls class="w-100 mt-2">
+                  <source src="audio/clean-dry-f-nsx10-to-c414/clean-dry-f-48k-pred.wav" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+                <div class="mt-1 text-muted" class="audio-caption">
+                    Predicted (converted)
+                </div>
+              </div>
+              <div class="col-6 col-md-3 text-center mb-4">
+                <img src="img/clean-dry-f-nsx10-to-c414/clean-dry-f-48k-target.svg" class="img-fluid rounded" style="aspect-ratio: 1 / 1;" alt="Image 4" />
+                <audio controls class="w-100 mt-2">
+                  <source src="audio/clean-dry-f-nsx10-to-c414/clean-dry-f-48k-target.wav" type="audio/mpeg" />
+                  Your browser does not support the audio element.
+                </audio>
+                <div class="mt-1 text-muted" class="audio-caption">
+                    Target
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
         <h3 id="bwe-plus-derev">Bandwidth extension + dereverberation <a href="#toc" class="btn btn-xs btn-outline-dark ms-2">Top ↑</a></h3>
         <p class="text-justify">
-            Add description
+            In the following examples, the model input consists of wideband clean reverberant speech. The network's task is to attenuate the reverberation, extend the bandwidth and modify the frequency response to match that of the target microphone.
         </p>
         <h3 id="bwe-plus-ns">Bandwidth extension + noise suppression <a href="#toc" class="btn btn-xs btn-outline-dark ms-2">Top ↑</a></h3>
         <p class="text-justify">
-            Add description
+            In the following examples, the model input consists of wideband noisy dry speech. The network's task is to remove the noise, extend the bandwidth and modify the frequency response to match that of the target microphone.
         </p>
         <h3 id="bwe-plus-derev-plus-ns">Bandwidth extension + derevereration + noise suppression <a href="#toc" class="btn btn-xs btn-outline-dark ms-2">Top ↑</a></h3>
         <p class="text-justify">
-            Add description
+            In the following examples, the model input consists of wideband noisy dry speech. The network's task is to remove the noise, attenuate the reverberation, extend the bandwidth and modify the frequency response to match that of the target microphone.
         </p>
         <h3 id="acknowledgment">Acknowledgment <a href="#toc" class="btn btn-xs btn-outline-dark ms-2">Top ↑</a></h3>
         <p class="text-justify">The calculations presented in this publication were carried out using the computer resources of the Aalto University of Science “Science-IT” project.</p>
