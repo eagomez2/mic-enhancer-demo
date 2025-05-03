@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Demo - Robust real-time bandwidth extension for headsets with a microphone conversion target</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+</head>
+<style>
+html {
+    scroll-behavior: smooth;
+  }
+
+h3 {
+    margin-top: 25px;
+}
+
+audio {
+    width: 350px;
+}
+
+.text-justify {
+    text-align: justify;
+}
+
+.btn-xs {
+    padding: 0.25rem 0.5rem;
+    font-size: 0.75rem;
+    line-height: 1;
+    border-radius: 0.25rem;
+    background-color: #333;
+    color: white;
+    text-decoration: none;
+    transition: background-color 0.2s ease;
+  }
+
+  .btn-xs:hover {
+    background-color: #333;
+    color: #fff;
+    text-decoration: none;
+  }
+</style>
+<body>
+    <div class="container">
+        <h3>Robust real-time bandwidth extension for headsets with a microphone conversion target</h3>
+        <p class="text-center">Esteban Gómez and Tom Bäckström</p>
+        <p class="text-center fst-italic">
+            Department of Information and Communications Engineering, Aalto University, Espoo, Finland<br>
+        </p>
+        <p class="text-center font-monospace">{esteban.gomezmellado, tom.backstrom}@aalto.fi</p>
+        <p class="text-center">
+            <img src="img/net-structure.svg" class="img-fluid" alt="net-structure">
+        </p>
+        <div class="text-center my-4">
+            <div class="d-flex justify-content-center flex-wrap gap-3">
+              <a href="#" class="btn btn-md btn-danger" data-bs-toggle="tooltip" data-bs-placement="top" title="Link will be available after peer review is completed" aria-label="Paper link not ready">
+                📄 Paper
+              </a>
+              <a href="#" class="btn btn-md btn-primary" data-bs-toggle="tooltip" data-bs-placement="top" title="Link will be available after peer review is completed" aria-label="Code link not ready">
+                💻 Code
+              </a>
+              <a href="#" class="btn btn-md btn-success" data-bs-toggle="tooltip" data-bs-placement="top" title="Link will be available after peer review is completed" aria-label="Dataset link not ready">
+                📂 Dataset
+              </a>
+            </div>
+          </div>
+        <h3>Abstract</h3>
+        <p class="text-justify">
+            Headsets are widely used in video conferences and online events, offering a compact solution of headphones, a microphone, and an analog-to-digital (ADC) converter in a single product.
+            However, their microphones often have lower perceptual audio quality than studio microphones: The typically smaller diaphragm sizes are unable to faithfully capture the lower frequency
+            range of human speech and their ADC converters are oftentimes limited to 16kHz (also known as wideband) or lower sample rates.
+            This limitation is particularly prevalent in Bluetooth headsets using Hands-Free Profile (HFP) or Headset Profile (HSP).
+            Artificially extending the input's bandwidth can improve perceptual audio quality; however, in practical applications, reverberation and background noise can significantly degrade
+            the performance of bandwidth extension algorithms. Furthermore, the maximum achievable quality in the extended bandwidth is limited by the source characteristics.
+            </br></br>
+            We propose a multitasking neural network for speech enhancement that effectively reduces noise and reverberation of a wideband input while generating a clean, full-band audio output
+            (48kHz). Differently from previous approaches, our solution leverages anechoic studio microphone recordings to produce a high quality target, thus, allowing simultaneous
+            reconstruction and enhancement of both low frequencies differences due to diaphragm size limitations as well as high frequencies due to ADC constraints. Our network is designed to
+            operate in real-time and low-complexity setups, allowing it to run on consumer laptops using CPU only or to be deployed on-device for hardware solutions. Model code and dataset
+            recordings are freely available to encourage further research.
+        </p>
+        <p>
+            <span class="badge text-bg-info">Bandwidth extension</span>
+            <span class="badge text-bg-info">Dereverberation</span>
+            <span class="badge text-bg-info">Noise suppression</span>
+            <span class="badge text-bg-info">Real-time</span>
+            <span class="badge text-bg-info">Low-complexity</span>
+        </p>  
+        <h3 id="toc">Table of contents</h3>
+        <nav class="mb-4">
+            <ol class="list-group list-group-numbered">
+                <li class="list-group-item">
+                    <a class="text-decoration-none" href="#bwe">Bandwidth extension</a>
+                </li>
+                <li class="list-group-item">
+                    <a class="text-decoration-none" href="#bwe-plus-derev">Bandwidth extension + dereverberation</a>
+                </li>
+                <li class="list-group-item">
+                    <a class="text-decoration-none" href="#bwe-plus-ns">Bandwidth extension + noise suppression</a>
+                </li>
+                <li class="list-group-item">
+                    <a class="text-decoration-none" href="#bwe-plus-derev-plus-ns">Bandwidth extension + dereverberation + noise suppression</a>
+                </li>
+                <li class="list-group-item">
+                    <a class="text-decoration-none" href="#acknowledgment">Acknowledgment</a>
+                </li>
+            </ol>
+        </nav>
+        <div class="alert alert-info" role="alert">
+            🎧 We highly recommend using wired headphones to better discern the differences between the audio samples provided below. Additionally, please be sure that your system playback is set to a minimum sample rate of 48kHz.
+        </div>
+        <h3 id="bwe">Bandwidth extension <a href="#toc" class="btn btn-xs btn-outline-dark ms-2">Top ↑</a></h3>
+        <p class="text-justify">
+            In the following examples, the input to the model corresponds to noisy dry speech. The network's task is to simultaneously suppress
+            the noise and to predict the missing spectral content without extending the bandwidth of any residual noise if present.
+        </p>
+        <h3 id="bwe-plus-derev">Bandwidth extension + dereverberation <a href="#toc" class="btn btn-xs btn-outline-dark ms-2">Top ↑</a></h3>
+        <p class="text-justify">
+            Add description
+        </p>
+        <h3 id="bwe-plus-ns">Bandwidth extension + noise suppression <a href="#toc" class="btn btn-xs btn-outline-dark ms-2">Top ↑</a></h3>
+        <p class="text-justify">
+            Add description
+        </p>
+        <h3 id="bwe-plus-derev-plus-ns">Bandwidth extension + derevereration + noise suppression <a href="#toc" class="btn btn-xs btn-outline-dark ms-2">Top ↑</a></h3>
+        <p class="text-justify">
+            Add description
+        </p>
+        <h3 id="acknowledgment">Acknowledgment <a href="#toc" class="btn btn-xs btn-outline-dark ms-2">Top ↑</a></h3>
+        <p class="text-justify">The calculations presented in this publication were carried out using the computer resources of the Aalto University of Science “Science-IT” project.</p>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.bundle.min.js" integrity="sha384-w76AqPfDkMBDXo30jS1Sgez6pr3x5MlQ1ZAGC+nuZB+EYdgRZgiwxhTBTkF7CXvN" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.6/dist/umd/popper.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/js/bootstrap.min.js"></script>
+    <script>
+        // Enable all tooltips, with click for mobile-friendly interaction
+        var tooltipTriggerList = [].slice.call(document.querySelectorAll('[data-bs-toggle="tooltip"]'));
+        var tooltipList = tooltipTriggerList.map(function (tooltipTriggerEl) {
+          return new bootstrap.Tooltip(tooltipTriggerEl, {
+            trigger: 'click hover'  // Makes it work on both hover and click
+          });
+        });
+      </script>
+    </div>
+</body>
+</html>
