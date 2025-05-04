@@ -12,7 +12,7 @@ def main() -> None:
         audio, fs = kt.read_audio(file, fs=True)
         audio = audio[0:1, ...]
         fig = plot_spectrogram(
-            audio[:, int(fs * 0.25):-int(fs * 0.1)],
+            audio[:, int(fs * 0.25):-int(fs * 0.125)],
             fs=fs,
             fft_size=2048,
             hop_size=1024,
