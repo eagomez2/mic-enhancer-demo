@@ -2,7 +2,7 @@
 
 This is the official demo page of the paper **Robust real-time bandwidth extension for headsets with a microphone conversion target** currently under peer review process.
 
-[[Demo page](#)] [[Paper](#)] [[Dataset](#)]
+[[Demo page](https://eagomez2.github.io/mic-enhancer-demo/)] [[Paper](#)] [[Dataset](#)]
 
 
 # Abstract
